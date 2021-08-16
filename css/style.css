@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    /* background-color: #f8f8f8; */
+    background-color: aquamarine;
+    text-align: center;
+}
+
+.container{
+    width: auto;
+    height: auto;
+    /* background-color: aquamarine; */
+}
+
+.container #inputTODO{
+    border: none;
+    border-radius: 10px;
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    font-size: 1.2em;
+}
