@@ -12,6 +12,8 @@ body{
 
 .title{
     color: #fff;
+    font-size: 36px;
+    font-family: 'Nanum Pen Script', cursive;
 }
 
 .container{
@@ -29,7 +31,7 @@ body{
 }
 
 .container .listTODO{
-    background-color: #74c7ff;
+    /* background-color: #74c7ff; */
     /* filter: blur(5px); */
     border-radius: 5px;
     width: 400px;
@@ -45,25 +47,29 @@ body{
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
-
-    word-wrap: break-word;
-    
+    user-select: none;    
 }
 
 .taskComponent{
-    margin: 2em 0;
+  margin: 2em 0;
 
-    height: 60px;
-    width: 400px;
+  min-height: 60px;
+  width: 100%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border: 1px solid #000;
+  border: none;
+  border-radius: 5px;
 
+  background-color: #48b6ff;
 
+  /* word-wrap: break-word; */
+}
+
+p{
+  word-wrap: break-word;
 }
 
 .taskComponent input {
@@ -71,65 +77,56 @@ body{
     left: 500px;
     opacity: 0;
     cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
-/* Custom radio */
-.taskComponent .checkmark{
-    position: absolute;
-    left: 500px;
-
-    display: flex;
-    align-items: center;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-
-    
+.btnComplete{
+  position: absolute;
+  left: 500px;
+  color: #2489cc;
+  width: 30px;
+  height: 30px;
+  background-color: #f8f8f8;
+  border: none;
+  border-radius: 50%;
 }
 
-/* hover */
-.taskComponent .checkmark:hover{
-    cursor: pointer;
-    background-color: #000;
-    transition: 0.5s;
+.btnComplete:hover{
+  background-color: #f0f0f0;
 }
 
-.taskComponent:hover input[type="radio"] ~ .checkmark{
-    cursor: pointer;
-    background-color: #000;
-    transition: 0.5s;
+.complete{
+  position: absolute;
+  left: 500px;
+  color: #2489cc;
+  width: 30px;
+  height: 30px;
+  /* background-color: #2489cc; */
+  border: none;
+  border-radius: 50%;
 }
 
-.taskComponent input:checked ~ .checkmark{
-    background-color: #2196F3;
+.complete::before{
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  height: 50%;
+  width: 3px;
+  background-color: #2489cc;
+  content: "";
+  transform: translateX(10px) rotate(-45deg);
+  transform-origin: left bottom;
 }
 
-/* criando um ponto sem check */
-.checkmark:after{
-    content: '';
-    position: absolute;
-    display: none;
+.complete::after{
+  position: absolute;
+  left: 15%;
+  bottom: 30%;
+  height: 3px;
+  width: 100%;
+  background-color: #2489cc;
+  content: "";
+  transform: translateX(10px) rotate(-45deg);
+  transform-origin: left bottom;
 }
-
-/* mostrando o ponto checked */
-.taskComponent input[type="radio"]:checked ~ .checkmark:after{
-    display: block;
-}
-
-/* estilo do ponto */
-.taskComponent .checkmark:after{
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-size: #fff;
-}
-
-/* .listTODO input[type="radio"]::-ms-check{
-    background-color: black;
-    color: red;
-    padding: 15px;
-} */
-

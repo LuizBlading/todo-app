@@ -1,6 +1,6 @@
 let inputTask = document.querySelector('#inputTODO');
 let result = document.querySelector('.listTODO');
-let btn = document.querySelector('#btn');
+let btnCompleteTask;
 
 inputTask.value = ''
 inputTask.addEventListener("keyup", getInputValue);
@@ -16,20 +16,25 @@ function getInputValue(e){
 }
 
 function addTask(valueTask){
-    let inputRadio = document.createElement('input');
-    let span = document.createElement('span');
+    btnCompleteTask = document.createElement('button');
+    let p = document.createElement('p');
     let value = document.createTextNode(valueTask);
     let div = document.createElement('div');
 
-    inputRadio.type = 'radio'
-    span.setAttribute('class', 'checkmark');
+    btnCompleteTask.setAttribute('class', 'btnComplete')
     div.setAttribute('class', 'taskComponent');
 
-    div.appendChild(span);
-    div.appendChild(inputRadio);
-    div.appendChild(value);
+    div.style.wordBreak = "break-all";
+    p.appendChild(value);
+    div.appendChild(btnCompleteTask);
+    div.appendChild(p);
 
     result.appendChild(div);
 
     document.querySelector('#inputTODO').value = '';
+    btnCompleteTask.addEventListener('click', completeTask);
+}
+
+function completeTask(){
+    btnCompleteTask.setAttribute('class', 'complete');
 }
