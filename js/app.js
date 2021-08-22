@@ -1,80 +1,72 @@
 let inputTask = document.querySelector('#inputTODO');
 let result = document.querySelector('.listTODO');
 let container = document.querySelector('.container');
+const ul = document.querySelector('ul');
+let li;
 let btnCompleteTask;
 let p;
+let divTextTask;
+let tasksArray = [];
+let taskComponentArray = [];
 
 inputTask.value = ''
 inputTask.addEventListener("keyup", getInputValue);
-window.addEventListener('load', drawButton);
+// window.addEventListener('load', drawButton);
 
-function getInputValue(e){
-    if(e.keyCode === 13)
-    {
+function getInputValue(e) {
+    if (e.keyCode === 13) {
+        result.style.display = "block";
         inputTask = document.querySelector('#inputTODO').value;
         e.preventDefault();
-        addTask(inputTask);
+        if (inputTask !== '') {
+            addTask(inputTask);
+        }
     }
-    
 }
 
-function addTask(valueTask){
+function addTask(valueTask) {
     btnCompleteTask = document.createElement('button');
     p = document.createElement('p');
     let value = document.createTextNode(valueTask);
-    let div = document.createElement('div');
+    li = document.createElement('li');
     let divButton = document.createElement('div');
-    let divTextTask = document.createElement('div');
+    divTextTask = document.createElement('div');
 
-    div.setAttribute('class', 'taskComponent');
+    li.setAttribute('class', 'taskComponent');
     divButton.setAttribute('class', 'divButton');
     divTextTask.setAttribute('class', 'divTextTask');
     btnCompleteTask.setAttribute('class', 'btnComplete');
 
-    div.style.wordBreak = "break-all";
+    li.style.wordBreak = "break-all";
     p.appendChild(value);
     divTextTask.appendChild(p);
     divButton.appendChild(btnCompleteTask);
-    div.appendChild(divButton);
-    div.appendChild(divTextTask);
+    li.appendChild(divButton);
+    li.appendChild(divTextTask);
 
-    result.appendChild(div);
+    ul.appendChild(li);
+    result.appendChild(ul);
 
     result.style.overflowY = "scroll";
-    
+    result.style.display = "block";
+
     document.querySelector('#inputTODO').value = '';
-    btnCompleteTask.addEventListener('click', completeTask);
+
+    btnCompleteTask.addEventListener('click', function(ev) {
+        btnCompleteTask.setAttribute('class', 'complete');
+        divTextTask.style.textDecoration = "line-through";
+
+        ev.target.classList.toggle('checked');
+        // if (ev.target.classList === 'taskComponent') {
+            
+           
+        // }
+    }, false)
 }
 
-function completeTask(){
-    btnCompleteTask.setAttribute('class', 'complete');
-    p.style.textDecoration = "line-through";
+let btnClear = document.querySelector('.btnClearAll');
+function clearTasks(){
+    li.parentNode.removeChild(li);
 }
 
-function drawButton(){
-    let divButtons = document.createElement('div');
-    let divButtonCompleteAll = document.createElement('div');
-    let divButtonClearAll = document.createElement('div');
-
-    let buttonCompleteAll = document.createElement('button');
-    let buttonClearAll = document.createElement('button');
-
-    let txtBtnComplete = document.createTextNode('Completar Todos');
-    let txtBtnClear = document.createTextNode('Limpar');
-
-    // criar atributos (classes)
-    divButtons.setAttribute('class', 'divButtons')
-    buttonCompleteAll.setAttribute('class', 'btnCompleteAll');
-    buttonClearAll.setAttribute('class', 'btnClearAll');
-
-    buttonCompleteAll.appendChild(txtBtnComplete);
-    buttonClearAll.appendChild(txtBtnClear);
-
-    divButtonCompleteAll.appendChild(buttonCompleteAll);
-    divButtonClearAll.appendChild(buttonClearAll);
-
-    divButtons.appendChild(divButtonCompleteAll);
-    divButtons.appendChild(divButtonClearAll);
-
-    container.appendChild(divButtons);
-}
+btnClear.addEventListener('click', clearTasks);

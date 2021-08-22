@@ -57,6 +57,14 @@ body{
     user-select: none;    
 }
 
+ul{
+  padding: 0;
+}
+
+ul li{
+  list-style: none;
+}
+
 .taskComponent{
   margin: 2em 0;
 
@@ -133,7 +141,21 @@ p{
   border-radius: 50%;
 }
 
-.complete::before{
+/* outra opção de check */
+.complete.checked::before{
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  border-color: #2489cc;
+  border-style: solid;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+  height: 1.1em;
+  width: 0.5em;
+}
+
+/* .complete::before{
   position: absolute;
   left: 10%;
   top: 15%;
@@ -155,7 +177,7 @@ p{
   content: "";
   transform: translateX(10px) rotate(-45deg);
   transform-origin: left bottom;
-}
+} */
 
 .divButtons{
   display: flex;
