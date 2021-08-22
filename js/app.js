@@ -40,6 +40,8 @@ function addTask(valueTask){
 
     result.appendChild(div);
 
+    result.style.overflowY = "scroll";
+    
     document.querySelector('#inputTODO').value = '';
     btnCompleteTask.addEventListener('click', completeTask);
 }
@@ -61,6 +63,9 @@ function drawButton(){
     let txtBtnClear = document.createTextNode('Limpar');
 
     // criar atributos (classes)
+    divButtons.setAttribute('class', 'divButtons')
+    buttonCompleteAll.setAttribute('class', 'btnCompleteAll');
+    buttonClearAll.setAttribute('class', 'btnClearAll');
 
     buttonCompleteAll.appendChild(txtBtnComplete);
     buttonClearAll.appendChild(txtBtnClear);

@@ -34,13 +34,14 @@ body{
 }
 
 .container .listTODO{
-    /* background-color: #74c7ff; */
-    /* filter: blur(5px); */
     border-radius: 5px;
     width: 400px;
-    max-height: 300px;
+    /* min-height: 300px;
+    max-height: 300px; */
+    height: 300px;
 
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
+    overflow-y:hidden;
 
     margin-top: 10px;
     padding: 1em;
@@ -154,4 +155,44 @@ p{
   content: "";
   transform: translateX(10px) rotate(-45deg);
   transform-origin: left bottom;
+}
+
+.divButtons{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1em;
+}
+
+.btnCompleteAll{
+  background-color: #2ECC71;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.btnCompleteAll:hover{
+  background-color: #4eff98;
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.btnClearAll{
+  background-color: #CB4335;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.5s;
+
+  width: 120px;
+}
+
+.btnClearAll:hover{
+  background-color: #fc5542;
+  transform: scale(1.05);
+  transition: 0.5s;
 }
