@@ -1,72 +1,57 @@
-let inputTask = document.querySelector('#inputTODO');
-let result = document.querySelector('.listTODO');
-let container = document.querySelector('.container');
-const ul = document.querySelector('ul');
+let input = document.querySelector("#inputTODO");
+let ul = document.querySelector("#items");
 let li;
-let btnCompleteTask;
-let p;
-let divTextTask;
-let tasksArray = [];
-let taskComponentArray = [];
 
-inputTask.value = ''
-inputTask.addEventListener("keyup", getInputValue);
-// window.addEventListener('load', drawButton);
+input.value = '';
+input.addEventListener("keyup", getInputValue);
 
 function getInputValue(e) {
     if (e.keyCode === 13) {
-        result.style.display = "block";
-        inputTask = document.querySelector('#inputTODO').value;
+        ul.style.display = "block";
+        input = document.querySelector('#inputTODO').value;
         e.preventDefault();
-        if (inputTask !== '') {
-            addTask(inputTask);
+        if (input !== '') {
+            addTask(input);
         }
     }
 }
 
-function addTask(valueTask) {
-    btnCompleteTask = document.createElement('button');
-    p = document.createElement('p');
-    let value = document.createTextNode(valueTask);
-    li = document.createElement('li');
-    let divButton = document.createElement('div');
-    divTextTask = document.createElement('div');
+function addTask(task) {
+    document.querySelector('#inputTODO').value = '';
+    let value = document.createTextNode(task);
+    let divList = document.querySelector(".listTODO");
 
+    li = document.createElement('li');
+    li.appendChild(value);
     li.setAttribute('class', 'taskComponent');
-    divButton.setAttribute('class', 'divButton');
-    divTextTask.setAttribute('class', 'divTextTask');
-    btnCompleteTask.setAttribute('class', 'btnComplete');
+    ul.appendChild(li);
+
 
     li.style.wordBreak = "break-all";
-    p.appendChild(value);
-    divTextTask.appendChild(p);
-    divButton.appendChild(btnCompleteTask);
-    li.appendChild(divButton);
-    li.appendChild(divTextTask);
+    divList.appendChild(ul);
 
-    ul.appendChild(li);
-    result.appendChild(ul);
+    divList.style.overflowY = 'scroll';
+    divList.style.display = 'block';
 
-    result.style.overflowY = "scroll";
-    result.style.display = "block";
+    completeTask(li);
 
-    document.querySelector('#inputTODO').value = '';
+}
 
-    btnCompleteTask.addEventListener('click', function(ev) {
-        btnCompleteTask.setAttribute('class', 'complete');
-        divTextTask.style.textDecoration = "line-through";
 
-        ev.target.classList.toggle('checked');
-        // if (ev.target.classList === 'taskComponent') {
-            
-           
-        // }
-    }, false)
+function completeTask(element) {
+    element.addEventListener('click', function(){
+        element.style.textDecoration = 'line-through';
+        element.style.backgroundColor = '#aaa';
+    })
 }
 
 let btnClear = document.querySelector('.btnClearAll');
+
 function clearTasks(){
-    li.parentNode.removeChild(li);
+    const tasks = document.querySelector('#items');
+    if(tasks.hasChildNodes()){
+        tasks.removeChild(tasks.firstChild);
+    }
 }
 
 btnClear.addEventListener('click', clearTasks);

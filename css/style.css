@@ -1,95 +1,84 @@
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #2489cc;
-    text-align: center;
-}
-
-.title{
-    color: #fff;
-    font-size: 36px;
-    margin: -40px 0;
-    /* background-color: #ca9d09; */
-    font-family: 'Nanum Pen Script', cursive;
-}
-
-.container{
-    width: auto;
-    height: 95vh;
-    /* background-color: rgb(255, 208, 77); */
-    margin: 0;
-}
-
-.container #inputTODO{
-    border: none;
-    border-radius: 10px;
-    width: 400px;
-    height: 40px;
-    padding: 10px;
-    margin: -10px 0 10px 0px;
-    font-size: 1.2em;
-}
-
-.container .listTODO{
-    border-radius: 5px;
-    width: 400px;
-    /* min-height: 300px;
-    max-height: 300px; */
-    height: 300px;
-
-    /* overflow-y: scroll; */
-    overflow-y:hidden;
-
-    margin-top: 10px;
-    padding: 1em;
-    display: block;
-
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 1px;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;    
-}
-
-ul{
-  padding: 0;
-}
-
-ul li{
-  list-style: none;
-}
-
-.taskComponent{
-  margin: 2em 0;
-
-  min-height: 60px;
-  width: 100%;
-
+body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #2489cc;
+  text-align: center;
+}
 
+.title {
+  color: #fff;
+  font-size: 36px;
+  margin: -40px 0;
+  /* background-color: #ca9d09; */
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.container {
+  width: auto;
+  height: 95vh;
+  /* background-color: rgb(255, 208, 77); */
+  margin: 0;
+}
+
+.container #inputTODO {
+  border: none;
+  border-radius: 10px;
+  width: 400px;
+  height: 40px;
+  padding: 10px;
+  margin: -10px 0 10px 0px;
+  font-size: 1.2em;
+}
+
+.container .listTODO {
+  border-radius: 5px;
+  width: 400px;
+  /* min-height: 300px;
+    max-height: 300px; */
+  height: 300px;
+  /* overflow-y: scroll; */
+  overflow-y: hidden;
+  margin-top: 10px;
+  padding: 1em;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+  word-wrap: break-word;
+  padding: 5px;
+}
+
+.taskComponent {
+  margin: 2em 0;
+  min-height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   border-radius: 5px;
-
   background-color: #48b6ff;
-
   transition: 1s;
+  cursor: pointer;
 }
 
-.taskComponent:hover{
+.taskComponent:hover {
   background-color: #5dbdfde8;
   transition: .2s;
-}
-
-p{
-  word-wrap: break-word;
 }
 
 .taskComponent input {
@@ -101,7 +90,7 @@ p{
   width: 0;
 }
 
-.divTextTask{
+.divTextTask {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,83 +98,22 @@ p{
   min-height: 60px;
 }
 
-.divButton{
+/* .divButton{
   display: flex;
   align-items: center;
   justify-content: center;
   width: 15%;
   min-height: 60px;
   margin-left: -60px;
-}
-
-.btnComplete{
-  position: relative;
-  color: #2489cc;
-  width: 30px;
-  height: 30px;
-  background-color: #f8f8f8;
-  border: none;
-  border-radius: 50%;
-}
-
-.btnComplete:hover{
-  background-color: #f0f0f0;
-}
-
-.complete{
-  position: relative;
-  color: #2489cc;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 50%;
-}
-
-/* outra opção de check */
-.complete.checked::before{
-  content: '';
-  position: absolute;
-  left: 10px;
-  top: 5px;
-  border-color: #2489cc;
-  border-style: solid;
-  border-width: 0 4px 4px 0;
-  transform: rotate(45deg);
-  height: 1.1em;
-  width: 0.5em;
-}
-
-/* .complete::before{
-  position: absolute;
-  left: 10%;
-  top: 15%;
-  height: 50%;
-  width: 3px;
-  background-color: #2489cc;
-  content: "";
-  transform: translateX(10px) rotate(-45deg);
-  transform-origin: left bottom;
-}
-
-.complete::after{
-  position: absolute;
-  left: 15%;
-  bottom: 30%;
-  height: 3px;
-  width: 100%;
-  background-color: #2489cc;
-  content: "";
-  transform: translateX(10px) rotate(-45deg);
-  transform-origin: left bottom;
 } */
 
-.divButtons{
+.divButtons {
   display: flex;
   justify-content: space-evenly;
   margin-top: 1em;
 }
 
-.btnCompleteAll{
+.btnCompleteAll {
   background-color: #2ECC71;
   padding: 10px;
   border: none;
@@ -193,15 +121,16 @@ p{
   color: #fff;
   font-weight: 600;
   transition: 0.5s;
+  cursor: pointer;
 }
 
-.btnCompleteAll:hover{
+.btnCompleteAll:hover {
   background-color: #4eff98;
   transform: scale(1.05);
   transition: 0.5s;
 }
 
-.btnClearAll{
+.btnClearAll {
   background-color: #CB4335;
   padding: 10px;
   border: none;
@@ -209,12 +138,16 @@ p{
   color: #fff;
   font-weight: 600;
   transition: 0.5s;
-
   width: 120px;
+  cursor: pointer;
 }
 
-.btnClearAll:hover{
+.btnClearAll:hover {
   background-color: #fc5542;
   transform: scale(1.05);
   transition: 0.5s;
+}
+
+#taskComplete {
+  background-color: #aaa;
 }
